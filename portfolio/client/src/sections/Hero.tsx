@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useMotionValue, useSpring, useInView } from 'framer-motion'
 import GlassButton from '@/components/GlassButton'
 
 const FIRST_NAME = 'BENJAMIN'
@@ -38,6 +38,8 @@ const SPRING_CONFIG = { damping: 25, stiffness: 150, mass: 0.5 }
 
 export default function Hero() {
   const contentStart = LAST_NAME_DELAY + 0.5
+  const heroRef = useRef<HTMLElement>(null)
+  const isInView = useInView(heroRef, { once: true, amount: 0.3 })
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -45,10 +47,23 @@ export default function Hero() {
   const portraitY = useSpring(mouseY, SPRING_CONFIG)
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+
+    if (isTouchDevice) {
+      // use device gyroscope on mobile
+      const onOrientation = (e: DeviceOrientationEvent) => {
+        const gamma = e.gamma ?? 0 // left-right tilt (-90..90)
+        const beta = e.beta ?? 0   // front-back tilt (-180..180)
+        mouseX.set((gamma / 45) * FOLLOW_RANGE)
+        mouseY.set(((beta - 45) / 45) * FOLLOW_RANGE) // offset by 45° for natural hold angle
+      }
+      window.addEventListener('deviceorientation', onOrientation)
+      return () => window.removeEventListener('deviceorientation', onOrientation)
+    }
+
     const onMove = (e: MouseEvent) => {
       const cx = window.innerWidth / 2
       const cy = window.innerHeight / 2
-      // normalise to -1..1 then scale to pixel range
       mouseX.set(((e.clientX - cx) / cx) * FOLLOW_RANGE)
       mouseY.set(((e.clientY - cy) / cy) * FOLLOW_RANGE)
     }
@@ -58,6 +73,7 @@ export default function Hero() {
 
   return (
     <section
+      ref={heroRef}
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
     >
@@ -90,7 +106,7 @@ export default function Hero() {
                   custom={i}
                   variants={letterVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={isInView ? 'visible' : 'hidden'}
                   className="inline-block"
                   aria-hidden="true"
                 >
@@ -105,7 +121,7 @@ export default function Hero() {
             <motion.span
               variants={blockFadeUp(LAST_NAME_DELAY)}
               initial="hidden"
-              animate="visible"
+              animate={isInView ? 'visible' : 'hidden'}
               className="inline-block text-gradient"
             >
               {LAST_NAME}
@@ -117,14 +133,14 @@ export default function Hero() {
             className="absolute inset-0 z-10 flex items-center justify-center"
             style={{ x: portraitX, y: portraitY }}
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ delay: LAST_NAME_DELAY + 0.1, duration: 0.7, ease: spring }}
           >
             <div
               className="overflow-hidden border-2 border-[var(--glass-border)] shadow-glass"
               style={{
-                width: 'clamp(140px, 22vw, 240px)',
-                height: 'clamp(180px, 30vw, 320px)',
+                width: 'clamp(100px, 18vw, 240px)',
+                height: 'clamp(130px, 24vw, 320px)',
                 borderRadius: '50% / 45%',
               }}
             >
@@ -142,7 +158,7 @@ export default function Hero() {
         <motion.p
           variants={blockFadeUp(contentStart)}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? 'visible' : 'hidden'}
           className="mt-8 text-sm font-medium tracking-widest uppercase text-[var(--accent)]"
         >
           Full-Stack Developer & AI Engineer
@@ -152,7 +168,7 @@ export default function Hero() {
         <motion.p
           variants={blockFadeUp(contentStart + 0.1)}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? 'visible' : 'hidden'}
           className="mt-4 max-w-xl text-center text-lg leading-relaxed text-[var(--text-secondary)] sm:text-xl"
         >
           I turn business problems into functional, simple products.
@@ -163,7 +179,7 @@ export default function Hero() {
         <motion.div
           variants={blockFadeUp(contentStart + 0.2)}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? 'visible' : 'hidden'}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <GlassButton as="a" href="#projects" size="lg">
@@ -182,7 +198,7 @@ export default function Hero() {
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
+        animate={isInView ? { opacity: 1, y: [0, 8, 0] } : { opacity: 0 }}
         transition={{ delay: contentStart + 0.5, duration: 2, repeat: Infinity, ease: 'easeInOut' }}
       >
         <svg width="20" height="30" viewBox="0 0 20 30" fill="none" className="text-[var(--text-muted)]">
