@@ -50,14 +50,37 @@ export default function Hero() {
     const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
 
     if (isTouchDevice) {
-      // use device gyroscope on mobile
       const onOrientation = (e: DeviceOrientationEvent) => {
-        const gamma = e.gamma ?? 0 // left-right tilt (-90..90)
-        const beta = e.beta ?? 0   // front-back tilt (-180..180)
+        const gamma = e.gamma ?? 0
+        const beta = e.beta ?? 0
         mouseX.set((gamma / 45) * FOLLOW_RANGE)
-        mouseY.set(((beta - 45) / 45) * FOLLOW_RANGE) // offset by 45° for natural hold angle
+        mouseY.set(((beta - 45) / 45) * FOLLOW_RANGE)
       }
-      window.addEventListener('deviceorientation', onOrientation)
+
+      const startListening = () => {
+        window.addEventListener('deviceorientation', onOrientation)
+      }
+
+      // iOS requires explicit permission request after a user gesture
+      const DOE = DeviceOrientationEvent as unknown as {
+        requestPermission?: () => Promise<string>
+      }
+      if (typeof DOE.requestPermission === 'function') {
+        const onTap = () => {
+          DOE.requestPermission!().then((response) => {
+            if (response === 'granted') startListening()
+          })
+          window.removeEventListener('touchstart', onTap)
+        }
+        window.addEventListener('touchstart', onTap, { once: true })
+        return () => {
+          window.removeEventListener('touchstart', onTap)
+          window.removeEventListener('deviceorientation', onOrientation)
+        }
+      }
+
+      // Android — no permission needed
+      startListening()
       return () => window.removeEventListener('deviceorientation', onOrientation)
     }
 
