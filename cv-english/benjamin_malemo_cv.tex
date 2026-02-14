@@ -1,0 +1,143 @@
+%──────────────────────────────────────────────────────────────────────────────
+% Benjamin Malemo – CV – Full-Stack Web & AI Developer
+%──────────────────────────────────────────────────────────────────────────────
+\documentclass[a4paper,9.5pt]{extarticle}
+
+\usepackage[top=0.35in,bottom=0.25in,left=0.45in,right=0.45in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% ── Colours & links ───────────────────────────────────────────────────────────
+\definecolor{heading}{HTML}{1A1A2E}
+\definecolor{accentrule}{HTML}{16213E}
+\definecolor{link}{HTML}{0F3460}
+\hypersetup{colorlinks=true,urlcolor=link,pdfauthor={Benjamin Malemo},pdftitle={CV -- Benjamin Malemo}}
+
+% ── Sections ──────────────────────────────────────────────────────────────────
+% the rule color is pulled out of \uppercase scope to avoid the linter
+% misreading "accent" as "ACCENT"
+\newcommand{\sectionrule}{\textcolor{accentrule}{\rule{\linewidth}{0.7pt}}}
+\titleformat{\section}{\normalsize\bfseries\color{heading}\uppercase}{}{0pt}{}[\vspace{-5pt}\sectionrule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+% ── Lists ─────────────────────────────────────────────────────────────────────
+\setlist[itemize]{leftmargin=12pt,itemsep=0.5pt,parsep=0pt,topsep=1pt,label=--}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Entry helper ──────────────────────────────────────────────────────────────
+\newcommand{\entry}[3]{%
+  \noindent\begin{minipage}{\linewidth}%
+    \textbf{#1}\hfill\textit{\small #2}\\[-1pt]%
+    \textit{\small #3}%
+  \end{minipage}\vspace{1pt}%
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% HEADER
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{center}
+{\Large\bfseries\color{heading} BENJAMIN MALEMO}\\\vspace{2pt}
+{\small Full-Stack Web \& AI Developer}\\\vspace{3pt}
+{\small
++27\,83\,346\,8959\enspace|\enspace
+\href{mailto:benjaminmalemo23@gmail.com}{benjaminmalemo23@gmail.com}\enspace|\enspace
+\href{https://linkedin.com/in/benjamin-malemo-ai}{linkedin.com/in/benjamin-malemo-ai}\enspace|\enspace
+\href{https://github.com/6enj1}{github.com/6enj1}\\[2pt]
+\href{https://zenziai.africa}{zenziai.africa}\enspace|\enspace
+Johannesburg, South Africa\enspace|\enspace
+French / English / Swahili}
+\end{center}
+\vspace{-2pt}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% PROFILE
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Profile}
+{\small Early-career full-stack \& AI developer specialising in turning business problems into functional, simple products. Creator of ZenziAI, a multimodal AI assistant platform for African SMEs (WhatsApp, web, voice), and co-founder of Kula, an AI-powered food waste marketplace in Johannesburg. End-to-end command of the development cycle: React/Next.js frontend, Node/Express backend, PostgreSQL databases, AI integrations (GPT-4o, LangChain), and cloud deployment.}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% TECHNICAL SKILLS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Technical Skills}
+{\small
+\begin{tabular}{@{}l@{\hskip 8pt}l@{}}
+\textbf{Frontend:}      & TypeScript/JavaScript, React, Next.js, SwiftUI, Tailwind CSS, HTML/CSS \\
+\textbf{Backend \& API:} & Node.js/Express, FastAPI, REST APIs, GraphQL, JWT/OTP, webhooks/IPN \\
+\textbf{AI \& Voice:}    & OpenAI (GPT-4o), LangChain, ElevenLabs, Hugging Face, prompt engineering, RAG \\
+\textbf{Data:}           & PostgreSQL, MongoDB, Supabase, Firebase, Prisma ORM, Redis \\
+\textbf{DevOps:}         & Git/GitHub, Docker, GitHub Actions, Vercel, AWS (EC2/S3), Linux \\
+\end{tabular}}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% PROJECTS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Projects}
+
+\entry{Kula -- AI-Powered Food Waste Marketplace}{\href{https://github.com/6enj1}{GitHub}}{Founder \& Lead Developer \hfill Jan 2025 -- Present}
+\begin{itemize}[nosep]
+\item Built a native iOS app (Swift/SwiftUI) connecting students with restaurants selling surplus meals at 50\% off, with geolocation, voice search, and Yoco payments.
+\item Developed a TypeScript/Express backend with PostgreSQL (18 tables, Prisma ORM), OAuth (Google/Apple), order management, and secure payments.
+\item Architected the ``Kula Brain'' AI module for demand forecasting and stock optimisation, enabling restaurants to reduce waste proactively.
+\end{itemize}
+
+\vspace{2pt}
+\entry{ZenziAI -- Multimodal AI Assistant for African SMEs}{\href{https://zenziai.africa}{zenziai.africa}}{Founder \& Full-Stack AI Developer \hfill Jan 2025 -- Present}
+\begin{itemize}[nosep]
+\item Launched a beta platform (WhatsApp, web dashboard, voice) on a Node/Express + PostgreSQL backend, integrating GPT-4o and ElevenLabs via \texttt{/api/chat} and \texttt{/api/voice} endpoints.
+\item Implemented a full subscription system with Yoco (IPN, upgrades/downgrades) and automated PDF/CSV invoice generation.
+\item Set up secure authentication (OTP + JWT) and admin-protected zones safeguarding client data.
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% EXPERIENCE
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Experience}
+
+\entry{Freelance Web Developer}{Jun 2023 -- Present}{Johannesburg, South Africa}
+\begin{itemize}[nosep]
+\item Delivered responsive websites (portfolios, Shopify stores) end-to-end from design to deployment (Vercel/Netlify).
+\item Integrated multilingual content (English/French/Swahili) with onboarding guides for client self-management.
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% EDUCATION
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Education}
+
+\entry{Diploma in Business Information Technology (NQF 6)}{Graduated 2025}{University of Johannesburg (UJ), Johannesburg, South Africa}
+\begin{itemize}[nosep]
+\item Coursework: Programming, Web Development, Databases (SQL), Systems \& Business Analysis, IT Security.
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% CERTIFICATIONS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Certifications}
+{\small
+\textbf{IBM AI Developer Professional Certificate} -- Coursera, 2025\enspace|\enspace
+\textbf{DeepLearning.AI ``AI for Everyone''} -- Coursera, 2025
+}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% INVOLVEMENT & INTERESTS
+% ═══════════════════════════════════════════════════════════════════════════════
+\section{Involvement \& Interests}
+{\small
+\textbf{Volunteering:} Source of Life Church -- Children's ministry leader (2023 -- present).\enspace
+\textbf{Languages:} French (fluent), English (fluent), Swahili (fluent).\enspace
+\textbf{Interests:} AI for Africa, food sustainability, tech entrepreneurship.
+}
+
+\end{document}
