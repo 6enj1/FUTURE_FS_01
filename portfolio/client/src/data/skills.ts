@@ -36,6 +36,16 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    title: 'Full Stack Web Development Intern',
+    company: 'Future Interns',
+    period: 'Jan 2026',
+    location: 'Remote',
+    description: [
+      'Completed a 1-month structured internship with task-based full-stack assignments.',
+      'Awarded Certificate of Completion (CIN: FIT/JAN26/FS10526) and Letter of Recommendation.',
+    ],
+  },
+  {
     title: 'Founder & Full-Stack AI Developer',
     company: 'ZenziAI',
     period: 'Jan 2025 — Present',
@@ -52,9 +62,9 @@ export const experience: Experience[] = [
     period: 'Jan 2025 — Present',
     location: 'Johannesburg, South Africa',
     description: [
-      'Designed and built a native iOS food waste marketplace using Swift/SwiftUI.',
-      'Developed a TypeScript/Express backend with PostgreSQL (18 tables) and Prisma ORM.',
-      'Architected the "Kula Brain" AI module for demand prediction and stock optimization.',
+      'Shipped a native iOS app (Swift/SwiftUI) with voice search, CoreLocation, QR verification, and Yoco payments.',
+      'Built a React 19 restaurant dashboard (Zustand, React Query, Recharts) with real-time order management and analytics.',
+      'Engineered the production REST API (api.kulasave.co.za) and launched the public site at kulasave.co.za.',
     ],
   },
   {
@@ -92,6 +102,7 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
+  { name: 'Full Stack Web Development — Certificate of Completion', issuer: 'Future Interns', year: '2026' },
   { name: 'IBM AI Developer Professional Certificate', issuer: 'Coursera', year: '2025' },
   { name: 'AI for Everyone', issuer: 'DeepLearning.AI / Coursera', year: '2025' },
 ]

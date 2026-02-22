@@ -18,18 +18,19 @@ export const projects: Project[] = [
     title: 'Kula',
     role: 'Founder & Lead Developer',
     description:
-      'AI-powered food waste marketplace connecting students with restaurants selling surplus meals at 50% off.',
+      'Food waste marketplace with a native iOS app, a React restaurant dashboard, and a public website — connecting students with restaurants selling surplus meals at 50% off.',
     longDescription:
-      'Kula is a native iOS application built to tackle food waste in Johannesburg. It connects university students with nearby restaurants that have surplus meals, offering them at half price. The platform uses geolocation, voice search, and mobile payments via Yoco to create a seamless experience. On the backend, a TypeScript/Express API manages 18 database tables through Prisma ORM, handling OAuth authentication, order management, and a secure payment pipeline.',
+      'Kula is a full-stack food waste platform built across three surfaces. The native iOS app (Swift/SwiftUI) features a premium glassmorphism UI, CoreLocation-based restaurant discovery, on-device voice search via the Speech API, QR-code order verification, Apple/Google OAuth, Keychain token storage, and Yoco payment checkout with 120-second polling. The restaurant dashboard (React 19, TypeScript, Vite, Zustand, React Query, Recharts, React Leaflet) gives restaurant partners real-time order management with 5-second polling, browser and audio notifications, bag CRUD with image upload, and a revenue analytics view. The production REST API at api.kulasave.co.za handles JWT auth with auto token refresh, 20+ endpoints, and the full order/payment lifecycle. The public site at kulasave.co.za drives restaurant onboarding with an earnings calculator and partner application form.',
     highlights: [
-      'Native iOS app built with Swift and SwiftUI featuring geolocation and voice search',
-      'TypeScript/Express backend with PostgreSQL (18 tables, Prisma ORM)',
-      'OAuth integration (Google/Apple) with secure session management',
-      'AI module "Kula Brain" for demand prediction and stock optimization',
-      'Mobile payment integration via Yoco with IPN handling',
+      'Native iOS app (Swift/SwiftUI) — glassmorphism UI, voice search, CoreLocation, QR verification, Apple/Google OAuth, Yoco payments',
+      'Restaurant web dashboard (React 19, TypeScript, Vite, Zustand, React Query) — real-time orders, analytics with Recharts, bag CRUD, image upload',
+      'Production REST API (api.kulasave.co.za) — JWT + auto token refresh, 20+ endpoints, full order/payment lifecycle',
+      'Public marketing site (kulasave.co.za) — restaurant earnings calculator, partner onboarding, deployed via Vercel',
+      'AI module "Kula Brain" for demand forecasting and stock optimisation',
     ],
-    tags: ['Swift', 'SwiftUI', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'AI'],
+    tags: ['Swift', 'SwiftUI', 'React', 'TypeScript', 'Vite', 'Zustand', 'React Query', 'Recharts', 'Express', 'PostgreSQL', 'Prisma'],
     github: 'https://github.com/6enj1',
+    live: 'https://www.kulasave.co.za',
     featured: true,
   },
   {
