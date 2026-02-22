@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.10.11)  12 FEB 2026 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.10.11)  22 FEB 2026 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -367,7 +367,7 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Unused global option(s):
     [9.5pt].
 
-No file benjamin_malemo_cv.aux.
+(./benjamin_malemo_cv.aux)
 \openout1 = `benjamin_malemo_cv.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -388,6 +388,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -423,6 +424,7 @@ LaTeX Font Info:    ... okay on input line 45.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 45.
+(./benjamin_malemo_cv.out) (./benjamin_malemo_cv.out)
 \@outlinefile=\write3
 \openout3 = `benjamin_malemo_cv.out'.
 
@@ -481,7 +483,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 88.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-8.
+2.
 
 (/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/lm/t1lmtt.f
 d
@@ -497,24 +499,17 @@ nc/dvips/lm/lm-ec.enc}] (./benjamin_malemo_cv.aux)
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `benjamin_malemo_cv.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `benjamin_malemo_cv.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  A243B10AC8A9158E2FA5CE3843581F89;748.
+Package rerunfilecheck Info: File `benjamin_malemo_cv.out' has not changed.
+(rerunfilecheck)             Checksum: A243B10AC8A9158E2FA5CE3843581F89;748.
  ) 
 Here is how much of TeX's memory you used:
- 11164 strings out of 473190
- 180763 string characters out of 5704334
- 610715 words of memory out of 5000000
- 34279 multiletter control sequences out of 15000+600000
+ 11180 strings out of 473190
+ 181050 string characters out of 5704334
+ 612801 words of memory out of 5000000
+ 34289 multiletter control sequences out of 15000+600000
  604627 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,514b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,560b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/
 lm/lmbx10.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/t
 ype1/public/lm/lmbx12.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-
@@ -524,10 +519,10 @@ hare/texmf-dist/fonts/type1/public/lm/lmr10.pfb></opt/homebrew/Cellar/texlive/2
 /texlive/20250308_1/share/texmf-dist/fonts/type1/public/lm/lmri9.pfb></opt/home
 brew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/lm/lmtt10.pf
 b>
-Output written on benjamin_malemo_cv.pdf (1 page, 196669 bytes).
+Output written on benjamin_malemo_cv.pdf (1 page, 198359 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  9 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
